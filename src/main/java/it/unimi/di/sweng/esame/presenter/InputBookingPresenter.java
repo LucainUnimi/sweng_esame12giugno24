@@ -19,8 +19,13 @@ public class InputBookingPresenter implements InputPresenter{
     @Override
     public void action(@NotNull String times, @NotNull String classRoom) {
         String[] time = times.split(",");
+        String[] course = classRoom.split(",");
         try {
+            if (time.length != 2) throw new IllegalArgumentException("Illegal time format");
+            if (course.length != 2) throw new IllegalArgumentException("Illegal time format");
             Time t = new Time(Integer.parseInt(time[0]), Integer.parseInt(time[1]));
+            ClassRoom c = new ClassRoom(course[0], course[1]);
+            //model.addBook(t, c);
         } catch (IllegalArgumentException e) {
             view.showError(e.getMessage());
         }

@@ -5,6 +5,7 @@ import it.unimi.di.sweng.esame.model.Model;
 import it.unimi.di.sweng.esame.view.InputView;
 import org.junit.jupiter.api.Test;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -23,6 +24,6 @@ public class TestPresenter {
         Model model = mock();
         InputBookingPresenter SUT = new InputBookingPresenter(mock(), mock());
         SUT.action("8,3", "INGSW,C06");
-        verify(model).addBook();
+        verify(model).addBook(any(), any());
     }
 }
