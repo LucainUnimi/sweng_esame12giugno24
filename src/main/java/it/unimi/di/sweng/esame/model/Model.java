@@ -23,7 +23,9 @@ public class Model implements State{
 
     @Override
     public List<Booking> getOnlyC06() {
-        return List.of();
+        return bookings.stream().filter(
+                b -> b.classRoom().classRoom().equals("C06")
+        ).toList();
     }
 
     public void addBook(Time t, ClassRoom c) {
