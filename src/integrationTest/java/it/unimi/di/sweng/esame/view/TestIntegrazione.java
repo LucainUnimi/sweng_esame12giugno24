@@ -94,7 +94,7 @@ public class TestIntegrazione {
 
   @Test
   public void testErrorClassRoom(@NotNull FxRobot robot) {
-    book("8,3", "INGSW,CC6", robot);
+    book("8,3", "INGSW,CC06", robot);
     assertThat(errorMessage).hasText("Illegal classroom format");
   }
 
