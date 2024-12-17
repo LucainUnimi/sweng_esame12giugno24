@@ -18,6 +18,10 @@ import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
+import static org.testfx.api.FxAssert.verifyThat;
+import static org.testfx.assertions.api.Assertions.assertThat;
+import static org.testfx.util.NodeQueryUtils.hasText;
+
 
 @ExtendWith(ApplicationExtension.class)
 public class TestIntegrazione {
@@ -70,6 +74,29 @@ public class TestIntegrazione {
   }
 
   //TODO: Add integration tests
+  @Test
+  public void testStartTimeFail(@NotNull FxRobot robot) {
+    book("7,3", "INGSW,C06", robot);
+    assertThat(errorMessage).hasText("Illegal start time");
+  }
+
+  @Test
+  public void testStartOkDurationFail(@NotNull FxRobot robot) {
+    book("8,6", "INGSW,C06", robot);
+    assertThat(errorMessage).hasText("Illegal duration");
+  }
+
+  @Test
+  public void testStartOkDurationOk(@NotNull FxRobot robot) {
+    book("8,3", "INGSW,C06", robot);
+    assertThat(errorMessage).hasText("");
+  }
+
+  @Test
+  public void testErrorClassRoom(@NotNull FxRobot robot) {
+    book("8,3", "INGSW,CC06", robot);
+    assertThat(errorMessage).hasText("Illegal classroom format");
+  }
 
 
 }
