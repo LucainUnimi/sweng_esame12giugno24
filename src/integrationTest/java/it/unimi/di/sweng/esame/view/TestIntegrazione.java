@@ -82,7 +82,7 @@ public class TestIntegrazione {
 
   @Test
   public void testStartOkDurationFail(@NotNull FxRobot robot) {
-    book("8,3", "INGSW,C06", robot);
+    book("8,6", "INGSW,C06", robot);
     assertThat(errorMessage).hasText("Illegal duration");
   }
 
