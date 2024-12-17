@@ -18,7 +18,9 @@ public class Model implements State{
 
     @Override
     public List<Booking> getByClassRoom() {
-        return List.of();
+        return bookings.stream().sorted(
+                (b1, b2) -> b1.classRoom().compareTo(b2.classRoom())
+        ).toList();
     }
 
     @Override
