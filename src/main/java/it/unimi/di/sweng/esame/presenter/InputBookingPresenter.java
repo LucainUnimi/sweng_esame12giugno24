@@ -1,5 +1,6 @@
 package it.unimi.di.sweng.esame.presenter;
 
+import it.unimi.di.sweng.esame.model.ClassRoom;
 import it.unimi.di.sweng.esame.model.Model;
 import it.unimi.di.sweng.esame.model.Time;
 import it.unimi.di.sweng.esame.view.InputView;
