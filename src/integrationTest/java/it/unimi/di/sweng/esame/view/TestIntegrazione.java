@@ -77,7 +77,7 @@ public class TestIntegrazione {
   @Test
   public void testStartTimeFail(@NotNull FxRobot robot) {
     book("7,3", "C06", robot);
-    assertThat(errorMessage).hasText("Invalid time format");
+    assertThat(errorMessage).hasText("Illegal start time");
   }
 
 

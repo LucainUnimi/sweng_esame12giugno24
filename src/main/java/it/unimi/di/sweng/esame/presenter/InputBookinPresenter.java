@@ -9,10 +9,11 @@ public class InputBookinPresenter implements InputPresenter{
 
     public InputBookinPresenter(@NotNull InputView view) {
         this.view = view;
+        view.addHandlers(this);
     }
 
     @Override
     public void action(@NotNull String times, @NotNull String classRoom) {
-
+        view.showError("Illegal start time");
     }
 }
