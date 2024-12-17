@@ -18,6 +18,10 @@ import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
+import static org.testfx.api.FxAssert.verifyThat;
+import static org.testfx.assertions.api.Assertions.assertThat;
+import static org.testfx.util.NodeQueryUtils.hasText;
+
 
 @ExtendWith(ApplicationExtension.class)
 public class TestIntegrazione {
@@ -70,6 +74,11 @@ public class TestIntegrazione {
   }
 
   //TODO: Add integration tests
+  @Test
+  public void testStartTimeFail(@NotNull FxRobot robot) {
+    book("7,3", "C06", robot);
+    assertThat(errorMessage).hasText("Invalid time format");
+  }
 
 
 }
