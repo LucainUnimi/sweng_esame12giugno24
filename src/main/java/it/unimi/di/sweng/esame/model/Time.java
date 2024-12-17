@@ -19,4 +19,10 @@ public record Time(int start, int duration) implements Comparable<Time> {
         }
         return Integer.compare(start, o.start);
     }
+
+    @Override
+    public String toString() {
+        int fine = start+duration;
+        return start + " - " + fine;
+    }
 }

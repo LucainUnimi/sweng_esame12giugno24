@@ -14,4 +14,9 @@ public record ClassRoom(String name, String classRoom) implements Comparable<Cla
         if (classRoom.equals(o.classRoom)) return name.compareTo(o.name);
         return classRoom.compareTo(o.classRoom);
     }
+
+    @Override
+    public String toString() {
+        return name + ":" + classRoom;
+    }
 }
