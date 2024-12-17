@@ -86,6 +86,11 @@ public class TestIntegrazione {
     assertThat(errorMessage).hasText("Illegal duration");
   }
 
+  @Test
+  public void testStartOkDurationOk(@NotNull FxRobot robot) {
+    book("8,3", "INGSW,C06", robot);
+    assertThat(errorMessage).hasText("");
+  }
 
 
 }
