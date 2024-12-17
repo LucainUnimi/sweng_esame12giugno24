@@ -13,7 +13,7 @@ public class C06Strategy implements Strategy {
     @Override
     public List<String> execute(@NotNull Model model) {
         List<String> strings = new ArrayList<>();
-        for(Booking booking: model.getByClassRoom()) {
+        for(Booking booking: model.getOnlyC06()) {
             strings.add(booking.toString().replace(":C06", ""));
         }
         return strings;
