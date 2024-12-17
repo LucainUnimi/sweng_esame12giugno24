@@ -16,4 +16,18 @@ public class ModelTest {
 
         assertThat(model.getByTime()).contains(new Booking(new Time(8, 3), new ClassRoom("INGSW", "C06")));
     }
+
+    @Test
+    void testOrderByTimeModel() {
+        Model model = new Model();
+        model.addBook(new Time(10, 3), new ClassRoom("INGSW", "C10"));
+        model.addBook(new Time(9, 3), new ClassRoom("INGSW", "C09"));
+        model.addBook(new Time(8, 3), new ClassRoom("INGSW", "C08"));
+
+        assertThat(model.getByTime()).containsExactly(
+                new Booking(new Time(8, 3), new ClassRoom("INGSW", "C08")),
+                new Booking(new Time(9, 3), new ClassRoom("INGSW", "C09")),
+                new Booking(new Time(10, 3), new ClassRoom("INGSW", "C10"))
+        );
+    }
 }
