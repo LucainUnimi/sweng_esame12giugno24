@@ -1,12 +1,16 @@
 package it.di.unimi.di.sweng.esame.model;
 
+import it.unimi.di.sweng.esame.presenter.Observer;
 import it.unimi.di.sweng.esame.model.Booking;
 import it.unimi.di.sweng.esame.model.ClassRoom;
 import it.unimi.di.sweng.esame.model.Model;
 import it.unimi.di.sweng.esame.model.Time;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.*;
 
 public class ModelTest {
     @Test
@@ -56,5 +60,22 @@ public class ModelTest {
                 new Booking(new Time(8, 3), new ClassRoom("INGSW", "C08")),
                 new Booking(new Time(9, 3), new ClassRoom("INGSW", "C09"))
         );
+    }
+
+    @Test
+    void testmodelObservable() {
+        Observer<List<Booking>> obs1 = mock();
+        Observer<List<Booking>> obs2 = mock();
+
+        Model SUT = new Model();
+        SUT.addObserver(obs1);
+        SUT.addObserver(obs2);
+
+        SUT.addBook(mock(Time.class), mock(ClassRoom.class));
+        SUT.addBook(mock(Time.class), mock(ClassRoom.class));
+        SUT.addBook(mock(Time.class), mock(ClassRoom.class));
+
+        verify(obs1, times(3)).update(any());
+        verify(obs2, times(3)).update(any());
     }
 }
