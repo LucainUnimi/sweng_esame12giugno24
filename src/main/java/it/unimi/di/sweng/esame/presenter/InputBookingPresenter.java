@@ -3,11 +3,11 @@ package it.unimi.di.sweng.esame.presenter;
 import it.unimi.di.sweng.esame.view.InputView;
 import org.jetbrains.annotations.NotNull;
 
-public class InputBookinPresenter implements InputPresenter{
+public class InputBookingPresenter implements InputPresenter{
 
     @NotNull private final InputView view;
 
-    public InputBookinPresenter(@NotNull InputView view) {
+    public InputBookingPresenter(@NotNull InputView view) {
         this.view = view;
         view.addHandlers(this);
     }

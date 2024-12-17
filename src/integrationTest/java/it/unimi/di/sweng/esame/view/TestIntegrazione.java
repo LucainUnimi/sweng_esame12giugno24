@@ -76,9 +76,16 @@ public class TestIntegrazione {
   //TODO: Add integration tests
   @Test
   public void testStartTimeFail(@NotNull FxRobot robot) {
-    book("7,3", "C06", robot);
+    book("7,3", "INGSW,C06", robot);
     assertThat(errorMessage).hasText("Illegal start time");
   }
+
+  @Test
+  public void testStartOkDurationFail(@NotNull FxRobot robot) {
+    book("8,3", "INGSW,C06", robot);
+    assertThat(errorMessage).hasText("Illegal duration");
+  }
+
 
 
 }

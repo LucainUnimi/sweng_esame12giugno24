@@ -1,7 +1,7 @@
 package it.unimi.di.sweng.esame;
 
 
-import it.unimi.di.sweng.esame.presenter.InputBookinPresenter;
+import it.unimi.di.sweng.esame.presenter.InputBookingPresenter;
 import it.unimi.di.sweng.esame.view.DisplayView;
 import it.unimi.di.sweng.esame.view.InputBooking;
 import javafx.application.Application;
@@ -46,7 +46,7 @@ public class Main extends Application {
         gridPane.add(onlyClassListing, 0, 2);
         GridPane.setColumnSpan(onlyClassListing, GridPane.REMAINING);
 
-        new InputBookinPresenter(input);
+        new InputBookingPresenter(input);
 
         Scene scene = new Scene(gridPane);
         primaryStage.setScene(scene);
