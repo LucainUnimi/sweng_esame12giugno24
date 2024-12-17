@@ -22,6 +22,7 @@ public record Time(int start, int duration) implements Comparable<Time> {
 
     @Override
     public String toString() {
-        return start + " - " + start + duration;
+        int fine = start+duration;
+        return start + " - " + fine;
     }
 }

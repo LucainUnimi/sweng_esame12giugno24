@@ -27,6 +27,7 @@ public class InputBookingPresenter implements InputPresenter{
             Time t = new Time(Integer.parseInt(time[0]), Integer.parseInt(time[1]));
             ClassRoom c = new ClassRoom(course[0], course[1]);
             model.addBook(t, c);
+            view.showSuccess();
         } catch (IllegalArgumentException e) {
             view.showError(e.getMessage());
         }
