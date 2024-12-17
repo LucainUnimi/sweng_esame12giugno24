@@ -46,6 +46,6 @@ public class Model implements State, Observable<List<Booking>> {
 
     public void addBook(Time t, ClassRoom c) {
         bookings.add(new Booking(t, c));
-        //notifyObservers();
+        notifyObservers();
     }
 }
