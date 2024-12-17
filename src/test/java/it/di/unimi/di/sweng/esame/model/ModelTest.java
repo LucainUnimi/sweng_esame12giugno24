@@ -42,4 +42,19 @@ public class ModelTest {
                 new Booking(new Time(9, 3), new ClassRoom("INGSW", "C06"))
         );
     }
+
+
+    @Test
+    void testOrderByClassRoomModel() {
+        Model model = new Model();
+        model.addBook(new Time(10, 3), new ClassRoom("INGSW", "C06"));
+        model.addBook(new Time(9, 3), new ClassRoom("INGSW", "C09"));
+        model.addBook(new Time(8, 3), new ClassRoom("INGSW", "C08"));
+
+        assertThat(model.getByClassRoom()).containsExactly(
+                new Booking(new Time(10, 3), new ClassRoom("INGSW", "C06")),
+                new Booking(new Time(8, 3), new ClassRoom("INGSW", "C08")),
+                new Booking(new Time(9, 3), new ClassRoom("INGSW", "C09"))
+        );
+    }
 }
