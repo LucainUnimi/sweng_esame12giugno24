@@ -1,7 +1,7 @@
 package it.unimi.di.sweng.esame;
 
 
-import it.unimi.di.sweng.esame.presenter.InputBookingPresenter;
+import it.unimi.di.sweng.esame.presenter.*;
 import it.unimi.di.sweng.esame.model.Model;
 import it.unimi.di.sweng.esame.view.DisplayView;
 import it.unimi.di.sweng.esame.view.InputBooking;
@@ -48,8 +48,13 @@ public class Main extends Application {
         GridPane.setColumnSpan(onlyClassListing, GridPane.REMAINING);
 
         Model model = new Model();
+        model.addObserver(new OutputPresenter(byDateListing, TimeStrategy.INSTANCE));
+        model.addObserver(new OutputPresenter(byClassListing, ClassRoomStrategy.INSTANCE));
+        model.addObserver(new OutputPresenter(onlyClassListing, C06Strategy.INSTANCE));
 
         new InputBookingPresenter(input, model);
+
+        model.notifyObservers();
 
         Scene scene = new Scene(gridPane);
         primaryStage.setScene(scene);
