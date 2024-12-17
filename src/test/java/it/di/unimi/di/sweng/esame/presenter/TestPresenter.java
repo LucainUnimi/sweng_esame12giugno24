@@ -22,7 +22,7 @@ public class TestPresenter {
     @Test
     void testPresentValidBook() {
         Model model = mock();
-        InputBookingPresenter SUT = new InputBookingPresenter(mock(), mock());
+        InputBookingPresenter SUT = new InputBookingPresenter(mock(), model);
         SUT.action("8,3", "INGSW,C06");
         verify(model).addBook(any(), any());
     }
