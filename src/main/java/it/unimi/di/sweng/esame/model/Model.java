@@ -4,7 +4,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Model implements State{
 
@@ -12,7 +11,9 @@ public class Model implements State{
 
     @Override
     public List<Booking> getByTime() {
-        return bookings;
+        return bookings.stream().sorted(
+                (b1, b2) -> b1.time().compareTo(b2.time())
+        ).toList();
     }
 
     @Override
